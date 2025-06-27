@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>202 FM Synthesizer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="synthesizer">
+      <header>
+        <h1>202 FM Synthesizer</h1>
+        <button id="panic-button">Panic!</button>
+      </header>
+
+      <main>
+        <section id="controls">
+          <div id="synth-and-effects-container">
+            <div class="control-group" id="fm-params">
+              <h2>FM Synthesis</h2>
+              <div class="knob-group">
+                <label>Carrier Freq</label>
+                <input
+                  type="range"
+                  id="carrier-freq"
+                  min="20"
+                  max="2000"
+                  value="440"
+                  class="knob"
+                />
+              </div>
+              <div class="knob-group">
+                <label>Modulator Freq</label>
+                <input
+                  type="range"
+                  id="modulator-freq"
+                  min="0"
+                  max="2000"
+                  value="440"
+                  class="knob"
+                />
+              </div>
+              <div class="knob-group">
+                <label>Modulation Index</label>
+                <input
+                  type="range"
+                  id="mod-index"
+                  min="0"
+                  max="1000"
+                  value="100"
+                  class="knob"
+                />
+              </div>
+            </div>
+
+            <div class="control-group" id="effects">
+              <h2>Effects</h2>
+              <div class="knob-group">
+                <label>LPF Cutoff</label>
+                <input
+                  type="range"
+                  id="lpf-cutoff"
+                  min="20"
+                  max="20000"
+                  value="20000"
+                  class="knob"
+                />
+              </div>
+              <div class="knob-group">
+                <label>Delay Time</label>
+                <input
+                  type="range"
+                  id="delay-time"
+                  min="0"
+                  max="1"
+                  value="0.5"
+                  step="0.01"
+                  class="knob"
+                />
+              </div>
+              <div class="knob-group">
+                <label>Delay Feedback</label>
+                <input
+                  type="range"
+                  id="delay-feedback"
+                  min="0"
+                  max="0.9"
+                  value="0.5"
+                  step="0.01"
+                  class="knob"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="control-group" id="transport">
+            <h2>Transport</h2>
+            <div class="knob-group">
+              <label>Transpose</label>
+              <input
+                type="number"
+                id="transpose"
+                value="0"
+                min="-12"
+                max="12"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section id="sequencer">
+          <h2>8-Step Sequencer</h2>
+          <div class="seq-steps">
+            <div class="step" data-step="0"></div>
+            <div class="step" data-step="1"></div>
+            <div class="step" data-step="2"></div>
+            <div class="step" data-step="3"></div>
+            <div class="step" data-step="4"></div>
+            <div class="step" data-step="5"></div>
+            <div class="step" data-step="6"></div>
+            <div class="step" data-step="7"></div>
+          </div>
+          <button id="play-pause-sequencer">Play/Pause</button>
+          <div class="control-group-vertical">
+            <label for="bpm">BPM</label>
+            <input type="range" id="bpm" min="60" max="240" value="120" />
+          </div>
+        </section>
+
+        <section id="keyboard">
+          <h2>Keyboard</h2>
+          <div id="piano-keys"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
